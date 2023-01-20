@@ -3,9 +3,7 @@ if not s then
 	return
 end
 
-saga.init_lsp_saga({
-	server_filetype_map = {},
-})
+saga.setup({})
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<cr>", opts)
