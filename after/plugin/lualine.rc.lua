@@ -29,7 +29,7 @@ local colors = {
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+		theme = "vscode",
 		oldtheme = {
 			normal = {
 				a = { fg = colors.gray2, bg = colors.gray7, gui = "bold" },

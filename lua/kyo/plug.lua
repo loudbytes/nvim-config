@@ -58,6 +58,7 @@ packer.startup(function(use)
 		requires = { "tjdevries/colorbuddy.nvim" },
 	})
 	use("rebelot/kanagawa.nvim")
+	use("Mofiqul/vscode.nvim")
 
 	-- [[ LSP]]
 	use("neovim/nvim-lspconfig")
