@@ -34,6 +34,7 @@ ts.setup({
 		"rust",
 		"yaml",
 		"vim",
+		"markdown",
 		"luau",
 	},
 	autotag = {

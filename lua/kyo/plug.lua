@@ -1,80 +1,66 @@
-local status, packer = pcall(require, "packer")
-if not status then
-	return
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd([[packadd packer.nvim]])
+require("lazy").setup({
+	"nvim-lua/plenary.nvim",
 
-packer.startup(function(use)
-	use("wbthomason/packer.nvim")
+	-- Utility
+	"nvim-telescope/telescope.nvim",
+	"nvim-telescope/telescope-file-browser.nvim",
+	"akinsho/toggleterm.nvim",
+	"fedepujol/move.nvim",
+	"folke/todo-comments.nvim",
+	"mg979/vim-visual-multi",
+	"folke/which-key.nvim",
+	"folke/zen-mode.nvim",
+	"folke/trouble.nvim",
 
-	-- [[ Plugin Utilities ]]
-	use("nvim-lua/plenary.nvim")
+	-- Git
+	"tpope/vim-fugitive", -- Return to neogit once it's more stable
+	"lewis6991/gitsigns.nvim",
 
-	-- [[ Utility Plugins ]]
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-file-browser.nvim")
-	use("akinsho/toggleterm.nvim")
-	use("fedepujol/move.nvim")
-	use("folke/todo-comments.nvim")
-	use({
-		"smjonas/inc-rename.nvim",
-		config = function()
-			require("inc_rename").setup()
-		end,
-	})
-	use({
-		"rmagatti/goto-preview",
-		config = function()
-			require("goto-preview").setup({ default_mappings = true })
-		end,
-	})
-	use({
-		"TimUntersberger/neogit",
-		require = "nvim-lua/plenary.nvim",
-	})
-	use("mg979/vim-visual-multi")
+	-- UI
+	"kyazdani42/nvim-web-devicons",
+	"nvim-lualine/lualine.nvim",
+	"alvarosevilla95/luatab.nvim",
+	"norcalli/nvim-colorizer.lua",
+	"j-hui/fidget.nvim",
+	"goolord/alpha-nvim",
+	"nvim-tree/nvim-tree.lua", -- TODO: Remove this, don't really use it that much
 
-	-- [[ UI Plugins ]]
-	use("kyazdani42/nvim-web-devicons")
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
-			opt = true,
-		},
-	})
-	use("alvarosevilla95/luatab.nvim")
-	use("norcalli/nvim-colorizer.lua")
-	use("j-hui/fidget.nvim")
-	use("goolord/alpha-nvim")
-	use("nvim-tree/nvim-tree.lua")
-
-	-- [[ Colorschemes ]]
-	use("morhetz/gruvbox")
-	use("tanvirtin/monokai.nvim")
-	use({
+	-- Colorschemes
+	"tjdevries/colorbuddy.nvim",
+	"morhetz/gruvbox",
+	"tanvirtin/monokai.nvim",
+	{
 		"svrana/neosolarized.nvim",
-		requires = { "tjdevries/colorbuddy.nvim" },
-	})
-	use("rebelot/kanagawa.nvim")
-	use("Mofiqul/vscode.nvim")
+		dependencies = { "tjdevries/colorbuddy.nvim" },
+	},
+	"rebelot/kanagawa.nvim",
+	"Mofiqul/vscode.nvim",
 
-	-- [[ LSP]]
-	use("neovim/nvim-lspconfig")
-	use("onsails/lspkind-nvim")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/nvim-cmp")
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use("windwp/nvim-autopairs")
-	use("glepnir/lspsaga.nvim")
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("ray-x/lsp_signature.nvim")
+	-- LSP
+	"neovim/nvim-lspconfig",
+	"onsails/lspkind-nvim",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/nvim-cmp",
+	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+	"windwp/nvim-autopairs", -- I don't know about that.
+	"glepnir/lspsaga.nvim",
+	"jose-elias-alvarez/null-ls.nvim",
+	"ray-x/lsp_signature.nvim",
 
-	-- [[ Language Support]]
-	use("Tetralux/odin.vim")
-end)
+	-- Language support
+	"Tetralux/odin.vim",
+})

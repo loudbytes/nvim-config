@@ -22,6 +22,7 @@ vim.opt.shell = "zsh"
 vim.opt.mouse = "a"
 vim.opt.inccommand = "split"
 vim.opt.signcolumn = "yes"
+vim.opt.timeout = true
 vim.opt.timeoutlen = 400
 vim.opt.updatetime = 250
 

@@ -1,4 +1,4 @@
-require("kyo.conf")
-require("kyo.highlight")
 require("kyo.plug")
+require("kyo.conf")
 require("kyo.maps")
+require("kyo.highlight")

@@ -10,6 +10,10 @@ toggleterm.setup({
 	shell = vim.o.shell,
 })
 
+vim.keymap.set("n", "tt", ":ToggleTerm size=15 direction=horizontal<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>tt", ":ToggleTerm direction=tab<CR>", { silent = true })
+vim.keymap.set("n", "<Leader>tf", ":ToggleTerm direction=float<CR>", { silent = true })
+
 --local Terminal = require("toggleterm.terminal").Terminal
 --local lazygit = Terminal:new({
 --	cmd = "lazygit",

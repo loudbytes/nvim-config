@@ -54,7 +54,7 @@ vim.keymap.set(
 	opts
 )
 vim.keymap.set("n", ";g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-vim.keymap.set("n", "\\\\", "<cmd>lua require('telescope.builtin').buffers({initial_mode = 'normal'})<cr>", opts)
+vim.keymap.set("n", ";b", "<cmd>lua require('telescope.builtin').buffers({initial_mode = 'normal'})<cr>", opts)
 vim.keymap.set("n", ";t", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 vim.keymap.set("n", ";;", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
 vim.keymap.set("n", ";e", "<cmd>lua require('telescope.builtin').diagnostics()<cr>", opts)
