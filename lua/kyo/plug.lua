@@ -49,6 +49,8 @@ require("lazy").setup({
 	},
 	"rebelot/kanagawa.nvim",
 	"Mofiqul/vscode.nvim",
+	"sainnhe/sonokai",
+	"sainnhe/gruvbox-material",
 
 	-- LSP
 	"neovim/nvim-lspconfig",
