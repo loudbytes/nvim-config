@@ -28,6 +28,7 @@ require("lazy").setup({
 	-- Git
 	"tpope/vim-fugitive", -- Return to neogit once it's more stable
 	"lewis6991/gitsigns.nvim",
+	"rhysd/git-messenger.vim",
 
 	-- UI
 	"kyazdani42/nvim-web-devicons",
