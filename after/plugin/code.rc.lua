@@ -1,4 +1,5 @@
 local s, code = pcall(require, "vscode")
+s = false
 if not s then
 	return
 end
