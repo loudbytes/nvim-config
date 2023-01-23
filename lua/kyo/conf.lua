@@ -26,6 +26,15 @@ vim.opt.timeout = true
 vim.opt.timeoutlen = 400
 vim.opt.updatetime = 250
 
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = false
+vim.opt.winblend = 0
+vim.opt.wildoptions = "pum"
+vim.opt.pumblend = 5
+vim.opt.background = "dark"
+vim.opt.colorcolumn = "0"
+vim.opt.termguicolors = true
+
 vim.opt.lazyredraw = true
 vim.opt.ignorecase = true
 vim.opt.smarttab = true
@@ -59,7 +68,7 @@ vim.opt.formatoptions:append({ "r" })
 
 if vim.fn.has("win32") == 1 then
 	vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
-	vim.opt.shell = "cmd"
+	vim.opt.shell = "pwsh"
 end
 
 vim.g.neovide_refresh_rate = 166

@@ -51,6 +51,12 @@ require("lazy").setup({
 	"Mofiqul/vscode.nvim",
 	"sainnhe/sonokai",
 	"sainnhe/gruvbox-material",
+	"savq/melange-nvim",
+	"bluz71/vim-moonfly-colors",
+	{ "catppuccin/nvim", name = "catppuccin" },
+	{ "Everblush/nvim", name = "everblush" },
+	"tiagovla/tokyodark.nvim",
+	"kvrohit/mellow.nvim",
 
 	-- LSP
 	"neovim/nvim-lspconfig",
@@ -59,6 +65,7 @@ require("lazy").setup({
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/nvim-cmp",
 	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+	"nvim-treesitter/nvim-treesitter-context",
 	"windwp/nvim-autopairs", -- I don't know about that.
 	"glepnir/lspsaga.nvim",
 	"jose-elias-alvarez/null-ls.nvim",

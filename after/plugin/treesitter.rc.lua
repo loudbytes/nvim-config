@@ -3,6 +3,11 @@ if not s then
 	return
 end
 
+local success, ts_context = pcall(require, "treesitter-context")
+if success then
+	ts_context.setup({})
+end
+
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 local luau_ts_url = "https://github.com/polychromatist/tree-sitter-luau"
 
