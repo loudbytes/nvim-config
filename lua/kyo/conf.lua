@@ -75,19 +75,4 @@ vim.g.neovide_refresh_rate = 166
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.fontsize = 18
 
--- remove default plugins we don't need
-local default_plugins = {
-	"2html_plugin",
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
-	"tutor",
-	"bugreport",
-}
-
-for _, plugin in ipairs(default_plugins) do
-	vim.g["loaded_" .. plugin] = 1
-end
-
 --vim.opt.backupskip = '/tmp/*'
