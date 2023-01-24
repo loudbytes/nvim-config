@@ -33,6 +33,7 @@ require("lazy").setup({
 	-- UI
 	"kyazdani42/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
+	"tamton-aquib/staline.nvim",
 	"alvarosevilla95/luatab.nvim",
 	"norcalli/nvim-colorizer.lua",
 	"j-hui/fidget.nvim",
