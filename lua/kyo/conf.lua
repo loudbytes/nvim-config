@@ -68,7 +68,13 @@ vim.opt.formatoptions:append({ "r" })
 
 if vim.fn.has("win32") == 1 then
 	vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
-	vim.opt.shell = "pwsh"
+	vim.opt.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
+	vim.opt.shellcmdflag =
+		"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+	vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+	vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.opt.shellquote = ""
+	vim.opt.shellxquote = ""
 end
 
 vim.g.neovide_refresh_rate = 166
