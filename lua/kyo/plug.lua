@@ -62,6 +62,7 @@ require("lazy").setup({
 				flavour = "mocha",
 				term_colors = true,
 				transparent_background = false,
+				show_end_of_buffer = true,
 				no_italic = false,
 				no_bold = false,
 				styles = {
@@ -80,8 +81,8 @@ require("lazy").setup({
 				color_overrides = {
 					mocha = {
 						base = "#000000",
-						mantle = "#000000",
-						crust = "#000000",
+						--mantle = "#000000",
+						--crust = "#000000",
 					},
 				},
 				highlight_overrides = {
@@ -94,6 +95,9 @@ require("lazy").setup({
 						}
 					end,
 				},
+				integrations = {
+					fidget = true,
+				},
 			})
 
 			vim.cmd.colorscheme("catppuccin")
@@ -101,7 +105,6 @@ require("lazy").setup({
 	},
 	{ "Everblush/nvim", name = "everblush" },
 	"tiagovla/tokyodark.nvim",
-	"kvrohit/mellow.nvim",
 
 	-- LSP
 	"neovim/nvim-lspconfig",
