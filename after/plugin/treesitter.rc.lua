@@ -33,7 +33,7 @@ parser_config.odin = {
 ts.setup({
 	highlight = {
 		enable = true,
-		disable = {},
+		disable = { "odin" },
 	},
 	indent = {
 		enable = true,
