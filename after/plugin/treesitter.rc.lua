@@ -9,16 +9,25 @@ if success then
 end
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-local luau_ts_url = "https://github.com/polychromatist/tree-sitter-luau"
 
 parser_config.luau = {
 	install_info = {
-		url = luau_ts_url,
+		url = "https://github.com/polychromatist/tree-sitter-luau",
 		files = { "src/parser.c", "src/scanner.c" },
 		branch = "main",
 		generate_requires_npm = false,
 		requires_generate_from_grammar = false,
 	},
+	filetype = "luau",
+}
+
+parser_config.odin = {
+	install_info = {
+		url = "https://github.com/ap29600/tree-sitter-odin",
+		files = { "src/parser.c" },
+		branch = "main",
+	},
+	filetype = "odin",
 }
 
 ts.setup({
@@ -41,6 +50,7 @@ ts.setup({
 		"vim",
 		"markdown",
 		"luau",
+		"odin",
 	},
 	autotag = {
 		enable = true,
