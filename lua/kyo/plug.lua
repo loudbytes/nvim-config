@@ -33,8 +33,20 @@ require("lazy").setup({
 	-- UI
 	"kyazdani42/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
-	"tamton-aquib/staline.nvim",
-	"alvarosevilla95/luatab.nvim",
+	{
+		"akinsho/bufferline.nvim",
+		config = function()
+			require("bufferline").setup({
+				options = {
+					mode = "tabs",
+					always_show_bufferline = false,
+					show_buffer_close_icons = false,
+					show_close_icon = false,
+					color_icons = true,
+				},
+			})
+		end,
+	},
 	"norcalli/nvim-colorizer.lua",
 	"j-hui/fidget.nvim",
 	"goolord/alpha-nvim",
@@ -81,7 +93,7 @@ require("lazy").setup({
 				color_overrides = {
 					mocha = {
 						base = "#000000",
-						--mantle = "#000000",
+						mantle = "#000000",
 						--crust = "#000000",
 					},
 				},
