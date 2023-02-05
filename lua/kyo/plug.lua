@@ -117,6 +117,7 @@ require("lazy").setup({
 	},
 	{ "Everblush/nvim", name = "everblush" },
 	"tiagovla/tokyodark.nvim",
+	"kdheepak/monochrome.nvim",
 
 	-- LSP
 	"neovim/nvim-lspconfig",
