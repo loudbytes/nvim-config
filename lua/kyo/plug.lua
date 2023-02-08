@@ -24,6 +24,16 @@ require("lazy").setup({
 	"folke/which-key.nvim",
 	"folke/zen-mode.nvim",
 	"folke/trouble.nvim",
+	{
+		"skywind3000/asynctasks.vim",
+		dependencies = { "skywind3000/asyncrun.vim" },
+		config = function()
+			vim.g.asyncrun_open = 6
+			vim.keymap.set("n", "<leader>bb", ":AsyncTask project-build<CR>")
+			vim.keymap.set("n", "<leader>r", ":AsyncTask project-run<CR>")
+			vim.keymap.set("n", "<leader>br", ":AsyncTask project-build-and-run<CR>")
+		end,
+	},
 
 	-- Git
 	"tpope/vim-fugitive",
