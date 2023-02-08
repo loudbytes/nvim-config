@@ -7,6 +7,7 @@ toggleterm.setup({
 	open_mapping = [[<C-\>t]],
 	hide_numbers = true,
 	close_on_exit = true,
+	direction = "float",
 	shell = vim.o.shell,
 })
 
