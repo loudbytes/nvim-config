@@ -63,7 +63,9 @@ require("lazy").setup({
 	"rebelot/kanagawa.nvim",
 	"Mofiqul/vscode.nvim",
 	"sainnhe/sonokai",
-	"sainnhe/gruvbox-material",
+	{
+		"sainnhe/gruvbox-material",
+	},
 	"savq/melange-nvim",
 	"bluz71/vim-moonfly-colors",
 	{
@@ -75,7 +77,7 @@ require("lazy").setup({
 				term_colors = true,
 				transparent_background = false,
 				show_end_of_buffer = true,
-				no_italic = false,
+				no_italic = true,
 				no_bold = false,
 				styles = {
 					comments = {},
@@ -116,8 +118,33 @@ require("lazy").setup({
 		end,
 	},
 	{ "Everblush/nvim", name = "everblush" },
-	"tiagovla/tokyodark.nvim",
 	"kdheepak/monochrome.nvim",
+	{
+		"andreypopp/vim-colors-plain",
+		_config = function()
+		    vim.cmd.colorscheme("plain")
+		end,
+	},
+	{
+		"jesseleite/nvim-noirbuddy",
+		_config = function()
+			require("noirbuddy").setup({
+				preset = "slate",
+			})
+		end,
+	},
+    {
+        "metalelf0/jellybeans-nvim",
+		dependencies = { "rktjmp/lush.nvim" },
+        _config = function()
+            vim.cmd.colorscheme("jellybeans-nvim")
+        end,
+    },
+    {"kvrohit/rasmus.nvim", _config = function() vim.cmd.colorscheme("rasmus") end,},
+    {
+        "mcchrish/zenbones.nvim",
+		dependencies = { "rktjmp/lush.nvim" },
+    },
 
 	-- LSP
 	"neovim/nvim-lspconfig",

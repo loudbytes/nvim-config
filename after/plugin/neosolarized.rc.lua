@@ -6,6 +6,7 @@ end
 
 neosolarized.setup({
 	comment_italics = true,
+    background_set = true,
 })
 
 local colorbuddy = require("colorbuddy.init")
