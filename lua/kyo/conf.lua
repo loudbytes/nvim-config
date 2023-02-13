@@ -35,6 +35,9 @@ vim.opt.background = "dark"
 vim.opt.colorcolumn = "0"
 vim.opt.termguicolors = true
 
+-- :Man causes issues when called in visual mode (for some reason?)
+vim.opt.keywordprg = ":help"
+
 vim.opt.lazyredraw = true
 vim.opt.ignorecase = true
 vim.opt.smarttab = true
