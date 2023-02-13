@@ -64,7 +64,7 @@ require("lazy").setup({
 
 	-- Colorschemes
 	"tjdevries/colorbuddy.nvim",
-	"morhetz/gruvbox",
+	"gruvbox-community/gruvbox",
 	"tanvirtin/monokai.nvim",
 	{
 		"svrana/neosolarized.nvim",
@@ -124,7 +124,7 @@ require("lazy").setup({
 				},
 			})
 
-			vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 	{ "Everblush/nvim", name = "everblush" },
@@ -132,7 +132,7 @@ require("lazy").setup({
 	{
 		"andreypopp/vim-colors-plain",
 		_config = function()
-		    vim.cmd.colorscheme("plain")
+			vim.cmd.colorscheme("plain")
 		end,
 	},
 	{
@@ -143,31 +143,36 @@ require("lazy").setup({
 			})
 		end,
 	},
-    {
-        "metalelf0/jellybeans-nvim",
+	{
+		"metalelf0/jellybeans-nvim",
 		dependencies = { "rktjmp/lush.nvim" },
-        _config = function()
-            vim.cmd.colorscheme("jellybeans-nvim")
-        end,
-    },
-    {"kvrohit/rasmus.nvim", _config = function() vim.cmd.colorscheme("rasmus") end,},
-    {
-        "mcchrish/zenbones.nvim",
+		_config = function()
+			vim.cmd.colorscheme("jellybeans-nvim")
+		end,
+	},
+	{
+		"kvrohit/rasmus.nvim",
+		_config = function()
+			vim.cmd.colorscheme("rasmus")
+		end,
+	},
+	{
+		"mcchrish/zenbones.nvim",
 		dependencies = { "rktjmp/lush.nvim" },
-    },
+	},
 
 	-- LSP
 	"neovim/nvim-lspconfig",
 	"onsails/lspkind-nvim",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lsp-signature-help",
 	"hrsh7th/nvim-cmp",
 	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-context",
 	"windwp/nvim-autopairs", -- I don't know about that.
 	"glepnir/lspsaga.nvim",
 	"jose-elias-alvarez/null-ls.nvim",
-	"ray-x/lsp_signature.nvim",
 
 	-- Language support
 	"Tetralux/odin.vim",
