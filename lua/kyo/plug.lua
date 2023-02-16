@@ -65,19 +65,18 @@ require("lazy").setup({
 	-- Colorschemes
 	"tjdevries/colorbuddy.nvim",
 	"gruvbox-community/gruvbox",
-	"tanvirtin/monokai.nvim",
 	{
 		"svrana/neosolarized.nvim",
 		dependencies = { "tjdevries/colorbuddy.nvim" },
 	},
 	"rebelot/kanagawa.nvim",
 	"Mofiqul/vscode.nvim",
-	"sainnhe/sonokai",
 	{
 		"sainnhe/gruvbox-material",
 	},
 	"savq/melange-nvim",
 	"bluz71/vim-moonfly-colors",
+	"folke/tokyonight.nvim",
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -124,7 +123,7 @@ require("lazy").setup({
 				},
 			})
 
-			vim.cmd.colorscheme("gruvbox")
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 	{ "Everblush/nvim", name = "everblush" },
@@ -164,13 +163,15 @@ require("lazy").setup({
 	-- LSP
 	"neovim/nvim-lspconfig",
 	"onsails/lspkind-nvim",
+	{ "L3MON4D3/LuaSnip", version = "<CurrentMajor>.*", build = "make install_jsregexp" },
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lsp-signature-help",
+	"saadparwaiz1/cmp_luasnip",
 	"hrsh7th/nvim-cmp",
 	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 	"nvim-treesitter/nvim-treesitter-context",
-	"windwp/nvim-autopairs", -- I don't know about that.
+	"windwp/nvim-autopairs",
 	"glepnir/lspsaga.nvim",
 	"jose-elias-alvarez/null-ls.nvim",
 
