@@ -6,10 +6,6 @@ keyset("n", "X", '"_X')
 keyset("v", "x", '"_x')
 keyset("v", "X", '"_X')
 
-keyset("n", "dw", 'vb"_d')
-
-keyset("n", "<C-a>", "gg<S-v>G")
-
 keyset("n", "te", ":tabedit<CR>", { silent = true })
 keyset("n", "<S-Tab>", ":tabprev<CR>", { silent = true })
 keyset("n", "<Tab>", ":tabnext<CR>", { silent = true })
