@@ -14,7 +14,7 @@ vim.opt.hlsearch = true
 vim.opt.backup = false
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
-vim.opt.laststatus = 3
+--vim.opt.laststatus = 3
 vim.opt.showmode = false
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
 	command = "set filetype=luau",
 })
 
-vim.opt.guifont = { "Inconsolata NFM", ":h18" }
+vim.opt.guifont = { "Inconsolata NFM", ":h16" }
 
 vim.opt.formatoptions:append({ "r" })
 
@@ -80,8 +80,15 @@ if vim.fn.has("win32") == 1 then
 	vim.opt.shellxquote = ""
 end
 
-vim.g.neovide_refresh_rate = 166
-vim.g.neovide_cursor_vfx_mode = "railgun"
-vim.g.fontsize = 18
+if vim.g.neovide then
+	vim.g.neovide_refresh_rate = 144
+	vim.g.neovide_cursor_vfx_mode = "pixiedust"
+	vim.g.neovide_cursor_vfx_particle_lifetime = 2.5
+	vim.g.neovide_cursor_vfx_particle_density = 20.0
+	vim.g.neovide_hide_mouse_when_typing = true
+	vim.g.neovide_cursor_antialiasing = true
+	vim.g.neovide_cursor_animate_in_insert_mode = true
+	vim.g.fontsize = 16
+end
 
 --vim.opt.backupskip = '/tmp/*'
