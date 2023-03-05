@@ -57,10 +57,8 @@ require("lazy").setup({
 			})
 		end,
 	},
-	"norcalli/nvim-colorizer.lua",
 	"j-hui/fidget.nvim",
 	"goolord/alpha-nvim",
-	"nvim-tree/nvim-tree.lua", -- TODO: Remove this, don't really use it that much
 
 	-- Colorschemes
 	"tjdevries/colorbuddy.nvim",
@@ -122,43 +120,9 @@ require("lazy").setup({
 					fidget = true,
 				},
 			})
-
-			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
-	{ "Everblush/nvim", name = "everblush" },
-	"kdheepak/monochrome.nvim",
-	{
-		"andreypopp/vim-colors-plain",
-		_config = function()
-			vim.cmd.colorscheme("plain")
-		end,
-	},
-	{
-		"jesseleite/nvim-noirbuddy",
-		_config = function()
-			require("noirbuddy").setup({
-				preset = "slate",
-			})
-		end,
-	},
-	{
-		"metalelf0/jellybeans-nvim",
-		dependencies = { "rktjmp/lush.nvim" },
-		_config = function()
-			vim.cmd.colorscheme("jellybeans-nvim")
-		end,
-	},
-	{
-		"kvrohit/rasmus.nvim",
-		_config = function()
-			vim.cmd.colorscheme("rasmus")
-		end,
-	},
-	{
-		"mcchrish/zenbones.nvim",
-		dependencies = { "rktjmp/lush.nvim" },
-	},
+	"captalbator/handmade-nvim",
 
 	-- LSP
 	"neovim/nvim-lspconfig",
