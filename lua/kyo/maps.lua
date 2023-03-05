@@ -16,6 +16,4 @@ keyset("n", "<C-w><right>", "<C-w>>")
 keyset("n", "<C-w><up>", "<C-w>+")
 keyset("n", "<C-w><down>", "<C-w>-")
 
-keyset("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
-
 keyset("n", "<C-q>", ":bd<CR>")
