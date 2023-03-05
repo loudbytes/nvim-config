@@ -1,5 +1,5 @@
 local s, lualine = pcall(require, "lualine")
---s = false
+s = false
 if not s then
 	return
 end
