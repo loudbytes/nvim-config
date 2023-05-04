@@ -16,4 +16,6 @@ keyset("n", "<C-w><right>", "<C-w>>")
 keyset("n", "<C-w><up>", "<C-w>+")
 keyset("n", "<C-w><down>", "<C-w>-")
 
+keyset("n", "<M-f>", vim.lsp.buf.format)
+
 keyset("n", "<C-q>", ":bd<CR>")
