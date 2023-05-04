@@ -32,7 +32,7 @@ vim.opt.winblend = 0
 vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 vim.opt.background = "dark"
-vim.opt.colorcolumn = "0"
+vim.opt.colorcolumn = "100"
 vim.opt.termguicolors = true
 
 -- :Man causes issues when called in visual mode (for some reason?)
@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
 	command = "set filetype=luau",
 })
 
-vim.opt.guifont = { "Inconsolata NFM", ":h16" }
+vim.opt.guifont = { "Inconsolata NFM", ":h13" }
 
 vim.opt.formatoptions:append({ "r" })
 
