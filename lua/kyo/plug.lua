@@ -63,10 +63,17 @@ require("lazy").setup({
 	-- Colorschemes
 	"tjdevries/colorbuddy.nvim",
 	"gruvbox-community/gruvbox",
-	{
-		"svrana/neosolarized.nvim",
-		dependencies = { "tjdevries/colorbuddy.nvim" },
-	},
+    {
+        "svrana/neosolarized.nvim",
+        config = function()
+            require("neosolarized").setup({
+                comment_italics = false,
+                background_set = true,
+            })
+
+            vim.cmd.colorscheme("neosolarized")
+        end,
+    },
 	"rebelot/kanagawa.nvim",
 	"Mofiqul/vscode.nvim",
 	{
