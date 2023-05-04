@@ -107,3 +107,5 @@ nvim_lsp.clangd.setup({
 nvim_lsp.rust_analyzer.setup({})
 
 nvim_lsp.ols.setup({})
+
+nvim_lsp.tsserver.setup({})
