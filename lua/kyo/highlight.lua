@@ -3,4 +3,4 @@ vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor
 
 vim.cmd([[hi Todo guibg=NONE]])
 
-vim.cmd.colorscheme("handmade")
+--vim.cmd.colorscheme("handmade")
