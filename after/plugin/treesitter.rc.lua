@@ -36,8 +36,9 @@ ts.setup({
 		disable = { "odin" },
 	},
 	indent = {
-		enable = true,
-		disable = { "cpp" }, -- broken on C++ for some reason
+		-- Completely broken.
+		enable = false,
+		disable = { "cpp" },
 	},
 	ensure_installed = {
 		"lua",
@@ -51,6 +52,11 @@ ts.setup({
 		"markdown",
 		"luau",
 		"odin",
+        "typescript",
+        "javascript",
+        "html",
+        "css",
+        "tsx",
 	},
 	autotag = {
 		enable = true,
