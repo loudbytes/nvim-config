@@ -50,6 +50,7 @@ ts.setup({
 		"yaml",
 		"vim",
 		"markdown",
+		"markdown_inline",
 		"luau",
 		"odin",
         "typescript",
