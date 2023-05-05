@@ -5,6 +5,7 @@ end
 
 local actions = require("telescope.actions")
 
+-- selene: allow(unused_variable)
 function telescope_buffer_dir()
 	return vim.fn.expand("%:p:h")
 end
@@ -26,6 +27,7 @@ telescope.setup({
 			preview_cutoff = 1,
 			hijack_netrw = true,
 			initial_mode = "normal",
+			hidden = true,
 			grouped = true,
 			max_colums = 200,
 			mappings = {
@@ -54,6 +56,9 @@ vim.keymap.set(
 	opts
 )
 vim.keymap.set("n", ";g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+vim.keymap.set("n", ";G", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+vim.keymap.set("n", ";w", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
+vim.keymap.set("n", ";d", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", opts)
 vim.keymap.set("n", ";b", "<cmd>lua require('telescope.builtin').buffers({initial_mode = 'normal'})<cr>", opts)
 vim.keymap.set("n", ";t", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 vim.keymap.set("n", ";;", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
