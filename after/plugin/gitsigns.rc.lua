@@ -3,4 +3,4 @@ if not success then
 	return
 end
 
-gitsigns.setup()
+gitsigns.setup({})
