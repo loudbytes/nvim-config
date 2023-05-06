@@ -5,4 +5,4 @@ end
 
 zen.setup({})
 
-vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>")
+vim.keymap.set("n", "<Leader>z", ":ZenMode<CR>", { silent = true })
