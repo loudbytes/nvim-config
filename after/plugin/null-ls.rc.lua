@@ -3,7 +3,7 @@ if not s then
 	return
 end
 
-local augroup = vim.api.nvim_create_autogroup("LspFormatting", {})
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local function lsp_formatting(bufnr)
 	vim.lsp.buf.format({
