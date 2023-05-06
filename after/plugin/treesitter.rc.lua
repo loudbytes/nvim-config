@@ -36,8 +36,7 @@ ts.setup({
 		disable = { "odin" },
 	},
 	indent = {
-		-- Completely broken.
-		enable = false,
+		enable = true,
 		disable = { "cpp" },
 	},
 	ensure_installed = {
