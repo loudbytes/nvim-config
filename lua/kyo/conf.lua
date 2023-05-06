@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
 	command = "set filetype=luau",
 })
 
-vim.opt.guifont = { "Hack NF", ":h12" }
+vim.opt.guifont = { "Hack NF", ":h13" }
 
 vim.opt.formatoptions:append({ "r" })
 
