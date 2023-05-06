@@ -5,7 +5,6 @@ end
 
 local actions = require("telescope.actions")
 
--- selene: allow(unused_variable)
 function telescope_buffer_dir()
 	return vim.fn.expand("%:p:h")
 end
@@ -39,7 +38,9 @@ telescope.setup({
 				["n"] = {
 					["N"] = fb_actions.create,
 					["h"] = fb_actions.goto_parent_dir,
-					["/"] = function() end,
+					["/"] = function()
+						vim.cmd("startinsert")
+					end,
 				},
 			},
 		},
@@ -49,23 +50,54 @@ telescope.setup({
 telescope.load_extension("file_browser")
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set(
-	"n",
-	";f",
-	"<cmd>lua require('telescope.builtin').find_files({no_ignore = false, hidden = true})<cr>",
-	opts
-)
-vim.keymap.set("n", ";g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-vim.keymap.set("n", ";G", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
-vim.keymap.set("n", ";w", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>", opts)
-vim.keymap.set("n", ";d", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", opts)
-vim.keymap.set("n", ";b", "<cmd>lua require('telescope.builtin').buffers({initial_mode = 'normal'})<cr>", opts)
-vim.keymap.set("n", ";t", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-vim.keymap.set("n", ";;", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
-vim.keymap.set("n", ";e", "<cmd>lua require('telescope.builtin').diagnostics()<cr>", opts)
-vim.keymap.set(
-	"n",
-	"sf",
-	'<cmd>lua require("telescope").extensions.file_browser.file_browser({path="%:p:h", cwd = telescope_buffer_dir(), respect_git_ignore = false, hidden = true, grouped = true, initial_mode = "normal", layout_config = { height = 80 } })<cr>',
-	opts
-)
+
+local telescope_builtin = require("telescope.builtin")
+
+vim.keymap.set("n", ";f", function()
+	telescope_builtin.find_files({ no_ignore = false, hidden = true })
+end, opts)
+
+vim.keymap.set("n", ";g", function()
+	telescope_builtin.live_grep()
+end, opts)
+
+vim.keymap.set("n", ";G", function()
+	telescope_builtin.grep_string()
+end, opts)
+
+vim.keymap.set("n", ";w", function()
+	telescope_builtin.lsp_workspace_symbols()
+end, opts)
+
+vim.keymap.set("n", ";d", function()
+	telescope_builtin.lsp_document_symbols()
+end, opts)
+
+vim.keymap.set("n", ";b", function()
+	telescope_builtin.buffers({ initial_mode = "normal" })
+end, opts)
+
+vim.keymap.set("n", ";t", function()
+	telescope_builtin.help_tags()
+end, opts)
+
+vim.keymap.set("n", ";;", function()
+	telescope_builtin.resume()
+end, opts)
+
+vim.keymap.set("n", ";e", function()
+	telescope_builtin.diagnostics()
+end, opts)
+
+vim.keymap.set("n", "sf", function()
+	telescope.extensions.file_browser.file_browser({
+		path = "%:p:h",
+		cwd = telescope_buffer_dir(),
+		respect_git_ignore = false,
+		hidden = true,
+		grouped = true,
+		previewer = false,
+		initial_mode = "normal",
+		layout_config = { height = 80 },
+	})
+end, opts)
