@@ -20,114 +20,34 @@ require("lazy").setup({
 	"akinsho/toggleterm.nvim",
 	"fedepujol/move.nvim",
 	"folke/todo-comments.nvim",
-	"mg979/vim-visual-multi",
 	"folke/which-key.nvim",
 	"folke/zen-mode.nvim",
 	"folke/trouble.nvim",
 	{
 		"skywind3000/asynctasks.vim",
 		dependencies = { "skywind3000/asyncrun.vim" },
-		config = function()
-			vim.g.asyncrun_open = 6
-			vim.keymap.set("n", "<leader>bb", ":AsyncTask project-build<CR>")
-			vim.keymap.set("n", "<leader>r", ":AsyncTask project-run<CR>")
-			vim.keymap.set("n", "<leader>br", ":AsyncTask project-build-and-run<CR>")
-		end,
 	},
-
-	-- Git
-	"tpope/vim-fugitive",
+	"windwp/nvim-ts-autotag",
+	"iamcco/markdown-preview.nvim",
 	"lewis6991/gitsigns.nvim",
-	"rhysd/git-messenger.vim",
 
 	-- UI
 	"kyazdani42/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
-	{
-		"akinsho/bufferline.nvim",
-		config = function()
-			require("bufferline").setup({
-				options = {
-					mode = "tabs",
-					always_show_bufferline = false,
-					show_buffer_close_icons = false,
-					show_close_icon = false,
-					color_icons = true,
-				},
-			})
-		end,
-	},
+	"akinsho/bufferline.nvim",
 	"j-hui/fidget.nvim",
 	"goolord/alpha-nvim",
 
 	-- Colorschemes
 	"tjdevries/colorbuddy.nvim",
 	"gruvbox-community/gruvbox",
-    {
-        "svrana/neosolarized.nvim",
-        config = function()
-            require("neosolarized").setup({
-                comment_italics = false,
-                background_set = true,
-            })
-
-            vim.cmd.colorscheme("neosolarized")
-        end,
-    },
-	"rebelot/kanagawa.nvim",
-	"Mofiqul/vscode.nvim",
-	{
-		"sainnhe/gruvbox-material",
-	},
+	"svrana/neosolarized.nvim",
+	"sainnhe/gruvbox-material",
 	"savq/melange-nvim",
 	"bluz71/vim-moonfly-colors",
-	"folke/tokyonight.nvim",
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		config = function()
-			require("catppuccin").setup({
-				flavour = "mocha",
-				term_colors = true,
-				transparent_background = false,
-				show_end_of_buffer = true,
-				no_italic = true,
-				no_bold = false,
-				styles = {
-					comments = {},
-					conditionals = {},
-					loops = {},
-					functions = {},
-					keywords = {},
-					strings = {},
-					variables = {},
-					numbers = {},
-					booleans = {},
-					properties = {},
-					types = {},
-				},
-				color_overrides = {
-					mocha = {
-						base = "#000000",
-						mantle = "#000000",
-						--crust = "#000000",
-					},
-				},
-				highlight_overrides = {
-					mocha = function(C)
-						return {
-							TabLineSel = { bg = C.pink },
-							CmpBorder = { fg = C.surface2 },
-							Pmenu = { bg = C.none },
-							TelescopeBorder = { link = "FloatBorder" },
-						}
-					end,
-				},
-				integrations = {
-					fidget = true,
-				},
-			})
-		end,
 	},
 	"captalbator/handmade-nvim",
 
