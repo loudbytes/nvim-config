@@ -59,9 +59,9 @@ local luau_root_files = {
 	"sourcemap.json",
 }
 
+-- TODO: Fetch them automatically
 local luau_def_location = "/home/kyo/luau-lsp/globalTypes.d.lua"
 local luau_docs_location = "/home/kyo/luau-lsp/api-docs.json"
-
 if vim.fn.has("win32") then
 	luau_def_location = "C:/luau-lsp/globalTypes.d.lua"
 	luau_docs_location = "C:/luau-lsp/api-docs.json"
@@ -104,8 +104,17 @@ nvim_lsp.clangd.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.rust_analyzer.setup({})
+nvim_lsp.rust_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
-nvim_lsp.ols.setup({})
+nvim_lsp.ols.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
-nvim_lsp.tsserver.setup({})
+nvim_lsp.tsserver.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
