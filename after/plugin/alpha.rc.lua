@@ -28,7 +28,6 @@ dashboard.section.buttons.val = {
 	dashboard.button("f", "  > Find file", ":cd d:/ | Telescope find_files<CR>"),
 	dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
 	dashboard.button("s", "  > Settings", ":cd " .. settings_location .. " | :e . | wincmd k | pwd<CR>"),
-	dashboard.button("u", "ﮮ  > Sync Plugins", ":PackerSync<CR>"),
 }
 
 alpha.setup(dashboard.opts)
