@@ -6,9 +6,14 @@ keyset("n", "X", '"_X')
 keyset("v", "x", '"_x')
 keyset("v", "X", '"_X')
 
+-- Tab controls
 keyset("n", "te", ":tabedit<CR>", { silent = true })
 keyset("n", "<S-Tab>", ":tabprev<CR>", { silent = true })
 keyset("n", "<Tab>", ":tabnext<CR>", { silent = true })
+
+-- Scroll with J and K
+keyset("n", "J", "<C-d>")
+keyset("n", "K", "<C-u>")
 
 -- Resize splits
 keyset("n", "<C-w><left>", "<C-w><")
@@ -16,6 +21,8 @@ keyset("n", "<C-w><right>", "<C-w>>")
 keyset("n", "<C-w><up>", "<C-w>+")
 keyset("n", "<C-w><down>", "<C-w>-")
 
+-- Format with Alt-F
 keyset("n", "<M-f>", vim.lsp.buf.format)
 
+-- Ctrl-q to quit buffer
 keyset("n", "<C-q>", ":bd<CR>")

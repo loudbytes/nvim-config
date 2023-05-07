@@ -1,18 +1,18 @@
-require("kyo.conf")
-require("kyo.plug")
-require("kyo.maps")
-require("kyo.highlight")
+require("core.conf")
+require("core.plug")
+require("core.maps")
+require("core.highlight")
 
 local has = vim.fn.has
 
 if has("linux") then
-	require("kyo.linux")
+	require("core.platform.linux")
 end
 
 if has("win32") then
-	require("kyo.win32")
+	require("core.platform.win32")
 end
 
 if vim.g.neovide then
-	require("kyo.neovide")
+	require("core.platform.neovide")
 end

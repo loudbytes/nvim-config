@@ -30,6 +30,7 @@ require("lazy").setup({
 	"windwp/nvim-ts-autotag",
 	"iamcco/markdown-preview.nvim",
 	"lewis6991/gitsigns.nvim",
+	"norcalli/nvim-colorizer.lua",
 
 	-- UI
 	"kyazdani42/nvim-web-devicons",

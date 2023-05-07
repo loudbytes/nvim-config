@@ -1,4 +1,7 @@
+-- Set clipboard
 vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
+
+-- Shell options
 vim.opt.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
 vim.opt.shellcmdflag =
 	"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
