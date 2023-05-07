@@ -1,3 +1,4 @@
+-- TODO: check for asynctask
 vim.g.asyncrun_open = 6
 
 vim.keymap.set("n", "<leader>bb", ":AsyncTask project-build<CR>")
