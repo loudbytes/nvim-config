@@ -3,4 +3,4 @@ if not success then
 	return
 end
 
-fidget.setup({ window = { blend = 100 } })
+fidget.setup({ window = { blend = 0 } })
