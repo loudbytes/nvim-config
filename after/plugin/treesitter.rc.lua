@@ -36,7 +36,9 @@ ts.setup({
 		disable = { "odin" },
 	},
 	indent = {
-		enable = true,
+		-- Will re-enable once its more stable. Right now, it doesn't work for any filetype,
+		-- which is an obvious issue.
+		enable = false,
 		disable = { "cpp" },
 	},
 	ensure_installed = {
@@ -52,11 +54,11 @@ ts.setup({
 		"markdown_inline",
 		"luau",
 		"odin",
-        "typescript",
-        "javascript",
-        "html",
-        "css",
-        "tsx",
+		"typescript",
+		"javascript",
+		"html",
+		"css",
+		"tsx",
 	},
 	autotag = {
 		enable = true,
