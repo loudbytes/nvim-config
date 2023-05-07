@@ -115,6 +115,22 @@ nvim_lsp.ols.setup({
 
 nvim_lsp.tsserver.setup({
 	on_attach = on_attach,
+	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+	capabilities = capabilities,
+})
+
+nvim_lsp.astro.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.cssls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
