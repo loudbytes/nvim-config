@@ -12,7 +12,7 @@ local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
 parser_config.luau = {
 	install_info = {
-		url = "https://github.com/polychromatist/tree-sitter-luau",
+		url = "D:/tree-sitter-luau",
 		files = { "src/parser.c", "src/scanner.c" },
 		branch = "main",
 		generate_requires_npm = false,
