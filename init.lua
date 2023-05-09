@@ -9,6 +9,10 @@ if has("linux") then
 	require("core.platform.linux")
 end
 
+if has("wsl") then
+	require("core.platform.wsl")
+end
+
 if has("win32") then
 	require("core.platform.win32")
 end
