@@ -10,6 +10,18 @@ end
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
+parser_config.luau = {
+	install_info = {
+		url = "https://github.com/polychromatist/tree-sitter-luau",
+		files = { "src/parser.c", "src/scanner.c" },
+		revision = ".",
+		branch = "main",
+		generate_requires_npm = false,
+		requires_generate_from_grammar = false,
+	},
+	filetype = "luau",
+}
+
 parser_config.odin = {
 	install_info = {
 		url = "https://github.com/ap29600/tree-sitter-odin",
@@ -22,13 +34,12 @@ parser_config.odin = {
 ts.setup({
 	highlight = {
 		enable = true,
+		-- Odin's treesitter highlighting has worse colors
 		disable = { "odin" },
 	},
 	indent = {
-		-- Will re-enable once its more stable. Right now, it doesn't work for any filetype,
-		-- which is an obvious issue.
-		enable = false,
-		disable = { "cpp" },
+		enable = true,
+		disable = {},
 	},
 	ensure_installed = {
 		"lua",
@@ -41,7 +52,7 @@ ts.setup({
 		"vim",
 		"markdown",
 		"markdown_inline",
-		"luau",
+		--"luau",
 		"odin",
 		"typescript",
 		"javascript",
