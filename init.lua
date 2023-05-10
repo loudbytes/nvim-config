@@ -1,7 +1,4 @@
 require("core.conf")
-require("core.plug")
-require("core.maps")
-require("core.highlight")
 
 local has = vim.fn.has
 
@@ -20,3 +17,7 @@ end
 if vim.g.neovide then
 	require("core.platform.neovide")
 end
+
+require("core.plug")
+require("core.maps")
+require("core.highlight")
