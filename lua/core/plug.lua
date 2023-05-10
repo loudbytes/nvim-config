@@ -55,7 +55,7 @@ require("lazy").setup({
 	-- LSP
 	"neovim/nvim-lspconfig",
 	"onsails/lspkind-nvim",
-	{ "L3MON4D3/LuaSnip", version = "<CurrentMajor>.*", build = "make install_jsregexp" },
+	{ "L3MON4D3/LuaSnip", version = "1.*", build = "make install_jsregexp" },
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lsp-signature-help",
