@@ -6,6 +6,8 @@ end
 local configs = require("lspconfig.configs")
 local protocol = require("vim.lsp.protocol")
 
+local path = nvim_lsp.util.path
+
 local on_attach = function(_client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -14,6 +16,7 @@ local on_attach = function(_client, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 
+	-- TODO: Remove this as it isn't necessary with cmp_nvim
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	local opts = { noremap = true, silent = true }
@@ -52,10 +55,16 @@ protocol.CompletionItemKind = {
 }
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- cmp_nvim_lsp only provides capabilities for textDocument so we must define workspace ourselves
+capabilities.workspace = {
+	didChangeWatchedFiles = {
+		dynamicRegistration = true,
+	},
+}
 
 local luau_root_files = {
-	"*.project.json",
-	"sourcemap.json",
+	"./*.project.json",
+	"./sourcemap.json",
 }
 
 -- TODO: Fetch them automatically
@@ -71,6 +80,7 @@ local cmd = {
 	"lsp",
 	"--definitions=" .. luau_def_location,
 	"--docs=" .. luau_docs_location,
+	"--flag:LuauBoundLazyTypes2=false",
 }
 
 if not configs.luaulsp then
@@ -87,13 +97,16 @@ end
 
 nvim_lsp.luaulsp.setup({
 	on_init = function(client)
-		client.config.cmd = {
-			unpack(cmd),
-			"--sourcemap=" .. vim.lsp.buf.list_workspace_folders()[1] .. "/sourcemap.json",
-		}
+		local sourcemap_path = vim.lsp.buf.list_workspace_folders()[1] .. "/sourcemap.json"
+		if path.exists(sourcemap_path) then
+			table.insert(cmd, "--sourcemap=" .. sourcemap_path)
+		end
+
+		client.config.cmd = cmd
 		client.notify("workspace/didChangeConfiguration", client.config)
 		return true
 	end,
+
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
