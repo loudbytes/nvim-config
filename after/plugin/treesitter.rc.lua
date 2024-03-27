@@ -10,20 +10,20 @@ end
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
-parser_config.odin = {
-	install_info = {
-		url = "https://github.com/ap29600/tree-sitter-odin",
-		files = { "src/parser.c" },
-		branch = "main",
-	},
-	filetype = "odin",
-}
+--parser_config.odin = {
+--	install_info = {
+--		url = "https://github.com/ap29600/tree-sitter-odin",
+--		files = { "src/parser.c" },
+--		branch = "main",
+--	},
+--	filetype = "odin",
+--}
 
 ts.setup({
 	highlight = {
 		enable = true,
 		-- Odin's treesitter highlighting has worse colors
-		disable = { "odin" },
+		disable = {},
 	},
 	indent = {
 		enable = true,
@@ -41,7 +41,7 @@ ts.setup({
 		"markdown",
 		"markdown_inline",
 		--"luau",
-		"odin",
+		--"odin",
 		"typescript",
 		"javascript",
 		"html",

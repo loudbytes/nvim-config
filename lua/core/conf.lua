@@ -29,7 +29,7 @@ vim.opt.winblend = 20
 vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
 vim.opt.background = "dark"
-vim.opt.colorcolumn = "100"
+--vim.opt.colorcolumn = "100"
 vim.opt.termguicolors = true
 
 -- :Man causes issues when called in visual mode (for some reason?)
@@ -53,11 +53,12 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	command = "set nopaste",
 })
 
-vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
-	pattern = "*.luau",
-	command = "set filetype=luau",
-})
+-- errors on latest - look into fixing this
+--vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
+--	pattern = "*.luau",
+--	command = "set filetype=luau",
+--})
 
-vim.opt.guifont = { "Hack NF", ":h13" }
+vim.opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h13" }
 
 vim.opt.formatoptions:append({ "r" })

@@ -62,11 +62,6 @@ capabilities.workspace = {
 	},
 }
 
-local luau_root_files = {
-	"./*.project.json",
-	"./sourcemap.json",
-}
-
 -- TODO: Fetch them automatically
 local luau_def_location = "/home/kyo/luau-lsp/globalTypes.d.lua"
 local luau_docs_location = "/home/kyo/luau-lsp/api-docs.json"
@@ -80,7 +75,6 @@ local cmd = {
 	"lsp",
 	"--definitions=" .. luau_def_location,
 	"--docs=" .. luau_docs_location,
-	"--flag:LuauBoundLazyTypes2=false",
 }
 
 if not configs.luaulsp then
@@ -88,7 +82,7 @@ if not configs.luaulsp then
 		default_config = {
 			cmd = cmd,
 			filetypes = { "lua", "luau" },
-			root_dir = nvim_lsp.util.root_pattern(unpack(luau_root_files)),
+			root_dir = nvim_lsp.util.root_pattern("*.project.json", "sourcemap.json"),
 			single_file_support = false,
 			settings = {},
 		},
@@ -111,10 +105,15 @@ nvim_lsp.luaulsp.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.clangd.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+if false then
+	local cap = require("cmp_nvim_lsp").default_capabilities()
+	cap.offsetEncoding = { "utf-16" }
+
+	nvim_lsp.clangd.setup({
+		on_attach = on_attach,
+		capabilities = cap,
+	})
+end
 
 nvim_lsp.rust_analyzer.setup({
 	on_attach = on_attach,
@@ -143,6 +142,11 @@ nvim_lsp.cssls.setup({
 })
 
 nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })

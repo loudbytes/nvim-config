@@ -23,11 +23,6 @@ require("lazy").setup({
 	"folke/which-key.nvim",
 	"folke/zen-mode.nvim",
 	"folke/trouble.nvim",
-	{
-		"skywind3000/asynctasks.vim",
-		dependencies = { "skywind3000/asyncrun.vim" },
-	},
-	"windwp/nvim-ts-autotag",
 	"iamcco/markdown-preview.nvim",
 	"lewis6991/gitsigns.nvim",
 	"norcalli/nvim-colorizer.lua",
@@ -44,7 +39,6 @@ require("lazy").setup({
 	"gruvbox-community/gruvbox",
 	"svrana/neosolarized.nvim",
 	"sainnhe/gruvbox-material",
-	"savq/melange-nvim",
 	"bluz71/vim-moonfly-colors",
 	{
 		"catppuccin/nvim",
