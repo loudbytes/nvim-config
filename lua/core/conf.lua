@@ -48,6 +48,11 @@ vim.opt.wildignore:append({ "*/Packages/*", "*/node_modules/*" })
 
 vim.opt.whichwrap:append("<>[]hl")
 
+-- Enable smooth scroll on nvim 0.10
+if vim.fn.has("nvim-0.10") == 1 then
+	vim.opt.smoothscroll = true
+end
+
 vim.api.nvim_create_autocmd("InsertLeave", {
 	pattern = "*",
 	command = "set nopaste",

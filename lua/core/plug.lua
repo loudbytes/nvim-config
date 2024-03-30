@@ -26,6 +26,7 @@ require("lazy").setup({
 	"iamcco/markdown-preview.nvim",
 	"lewis6991/gitsigns.nvim",
 	"norcalli/nvim-colorizer.lua",
+	"echasnovski/mini.pairs",
 
 	-- UI
 	"kyazdani42/nvim-web-devicons",
@@ -36,8 +37,36 @@ require("lazy").setup({
 
 	-- Colorschemes
 	"tjdevries/colorbuddy.nvim",
-	"gruvbox-community/gruvbox",
-	"svrana/neosolarized.nvim",
+	-- "gruvbox-community/gruvbox",
+	{
+		"ellisonleao/gruvbox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("gruvbox").setup({
+				terminal_colors = true,
+				undercurl = true,
+				underline = true,
+				bold = true,
+				inverse = false,
+				dim_inactive = false,
+				italic = {
+					strings = false,
+					emphasis = false,
+					comments = false,
+					operators = false,
+					folds = false,
+				},
+			})
+		end
+	},
+
+	{
+		"craftzdog/solarized-osaka.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	"sainnhe/gruvbox-material",
 	"bluz71/vim-moonfly-colors",
 	{
