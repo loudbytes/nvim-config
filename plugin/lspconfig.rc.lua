@@ -28,29 +28,29 @@ end
 
 protocol.CompletionItemKind = {
 	"", -- Text
-	"", -- Method
-	"", -- Function
-	"", -- Constructor
+	"󰊕", -- Method
+	"󰊕", -- Function
+	"󰊕", -- Constructor
 	"", -- Field
 	"", -- Variable
 	"", -- Class
-	"ﰮ", -- Interface
-	"", -- Module
+	"󰜰", -- Interface
+	"󰏗", -- Module
 	"", -- Property
 	"", -- Unit
-	"", -- Value
+	"󰎠", -- Value
 	"", -- Enum
-	"", -- Keyword
-	"﬌", -- Snippet
+	"󰌋", -- Keyword
+	"󰘍", -- Snippet
 	"", -- Color
 	"", -- File
-	"", -- Reference
+	"󰆑", -- Reference
 	"", -- Folder
 	"", -- EnumMember
 	"", -- Constant
 	"", -- Struct
 	"", -- Event
-	"ﬦ", -- Operator
+	"󰘧", -- Operator
 	"", -- TypeParameter
 }
 
@@ -105,15 +105,10 @@ nvim_lsp.luaulsp.setup({
 	capabilities = capabilities,
 })
 
-if false then
-	local cap = require("cmp_nvim_lsp").default_capabilities()
-	cap.offsetEncoding = { "utf-16" }
-
-	nvim_lsp.clangd.setup({
-		on_attach = on_attach,
-		capabilities = cap,
-	})
-end
+nvim_lsp.clangd.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 nvim_lsp.rust_analyzer.setup({
 	on_attach = on_attach,
@@ -159,7 +154,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 })
 
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -171,6 +166,6 @@ vim.diagnostic.config({
 	},
 	update_in_insert = true,
 	float = {
-		source = "always", -- Or "if_many"
+		source = true, -- Or "if_many"
 	},
 })
