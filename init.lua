@@ -10,6 +10,10 @@ end
 --	require("core.platform.wsl")
 --end
 
+if has("macos") then
+	require("core.platform.macos")
+end
+
 if has("win32") then
 	require("core.platform.win32")
 end
