@@ -21,12 +21,12 @@ require("lazy").setup({
 	"fedepujol/move.nvim",
 	"folke/todo-comments.nvim",
 	"folke/which-key.nvim",
-	"folke/zen-mode.nvim",
 	"folke/trouble.nvim",
 	"iamcco/markdown-preview.nvim",
 	"lewis6991/gitsigns.nvim",
 	"norcalli/nvim-colorizer.lua",
 	"echasnovski/mini.pairs",
+	"windwp/nvim-ts-autotag",
 
 	-- UI
 	"kyazdani42/nvim-web-devicons",
@@ -58,15 +58,10 @@ require("lazy").setup({
 					folds = false,
 				},
 			})
-		end
+		end,
 	},
 
-	{
-		"craftzdog/solarized-osaka.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
+	{ "craftzdog/solarized-osaka.nvim", lazy = false, priority = 1000, opts = {} },
 	"sainnhe/gruvbox-material",
 	"bluz71/vim-moonfly-colors",
 	{
@@ -88,7 +83,47 @@ require("lazy").setup({
 	"nvim-treesitter/nvim-treesitter-context",
 	"windwp/nvim-autopairs",
 	"glepnir/lspsaga.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
+
+	{
+		"mfussenegger/nvim-lint",
+		config = function()
+			require("lint").linters_by_ft = {
+				lua = { "selene" },
+				typescript = { "eslint" },
+			}
+
+			vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
+				callback = function()
+					require("lint").try_lint()
+				end,
+			})
+		end,
+	},
+
+	{
+		"stevearc/conform.nvim",
+		config = function()
+			require("conform").setup({
+				format_on_save = {
+					-- These options will be passed to conform.format() timeout_ms = 500,
+					lsp_format = "fallback",
+				},
+				formatters_by_ft = {
+					lua = { "stylua" },
+					javascript = { "prettierd", "prettier", stop_after_first = true },
+					typescript = { "prettierd", "prettier", stop_after_first = true },
+				},
+			})
+		end,
+	},
+
+	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {
+			library = {},
+		},
+	},
 
 	-- Language support
 	"Tetralux/odin.vim",

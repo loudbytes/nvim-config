@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
@@ -39,8 +40,8 @@ vim.opt.lazyredraw = false
 vim.opt.ignorecase = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.wrap = false
 vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
@@ -59,11 +60,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 -- errors on latest - look into fixing this
---vim.api.nvim_create_autocmd("BufRead,BufNewFile", {
---	pattern = "*.luau",
---	command = "set filetype=luau",
---})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.luau",
+	command = "set filetype=luau",
+})
 
-vim.opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h13" }
+--vim.opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h13" }
 
 vim.opt.formatoptions:append({ "r" })

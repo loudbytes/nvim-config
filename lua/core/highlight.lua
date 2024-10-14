@@ -3,6 +3,7 @@ vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor
 
 vim.cmd([[hi Todo guibg=NONE]])
 
+-- TODO: Rewrite this in lua
 -- highlight yanked text for 200ms using the "Visual" highlight group
 vim.cmd([[
   augroup highlight_yank
@@ -11,4 +12,5 @@ vim.cmd([[
   augroup END
 ]])
 
-vim.cmd([[colorscheme gruvbox]])
+--vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme solarized-osaka]])
