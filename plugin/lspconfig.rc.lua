@@ -126,21 +126,6 @@ nvim_lsp.ts_ls.setup({
 	capabilities = capabilities,
 })
 
-nvim_lsp.astro.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.cssls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
 nvim_lsp.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -168,4 +153,5 @@ vim.diagnostic.config({
 	float = {
 		source = true, -- Or "if_many"
 	},
+	true,
 })
