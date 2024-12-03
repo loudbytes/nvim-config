@@ -31,7 +31,6 @@ require("lazy").setup({
 	-- UI
 	"kyazdani42/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
-	"akinsho/bufferline.nvim",
 	"j-hui/fidget.nvim",
 	"goolord/alpha-nvim",
 
@@ -105,13 +104,13 @@ require("lazy").setup({
 		config = function()
 			require("conform").setup({
 				format_on_save = {
-					-- These options will be passed to conform.format() timeout_ms = 500,
-					lsp_format = "fallback",
+					lsp_fallback = true,
 				},
 				formatters_by_ft = {
 					lua = { "stylua" },
 					javascript = { "prettierd", "prettier", stop_after_first = true },
 					typescript = { "prettierd", "prettier", stop_after_first = true },
+					c = { "clang-format" },
 				},
 			})
 		end,
@@ -127,4 +126,5 @@ require("lazy").setup({
 
 	-- Language support
 	"Tetralux/odin.vim",
+	"tikhomirov/vim-glsl",
 })
