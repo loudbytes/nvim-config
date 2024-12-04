@@ -73,9 +73,9 @@ vim.keymap.set("n", "<leader>fs", function()
 	telescope_builtin.lsp_document_symbols()
 end, { noremap = true, silent = true, desc = "Document symbols" })
 
-vim.keymap.set("n", "<leader>fb", function()
+vim.keymap.set("n", "<leader>bf", function()
 	telescope_builtin.buffers({ initial_mode = "normal" })
-end, { noremap = true, silent = true, desc = "Buffers" })
+end, { noremap = true, silent = true, desc = "Find buffer" })
 
 vim.keymap.set("n", "<leader>ft", function()
 	telescope_builtin.help_tags()

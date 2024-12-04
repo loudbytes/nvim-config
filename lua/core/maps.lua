@@ -1,24 +1,21 @@
-local keyset = vim.keymap.set
-
 -- Don't yank with x
-keyset("n", "x", '"_x')
-keyset("n", "X", '"_X')
-keyset("v", "x", '"_x')
-keyset("v", "X", '"_X')
+vim.keymap.set("n", "x", '"_x')
+vim.keymap.set("n", "X", '"_X')
+vim.keymap.set("v", "x", '"_x')
+vim.keymap.set("v", "X", '"_X')
 
 -- Tab controls
-keyset("n", "te", ":tabedit<CR>", { silent = true })
-keyset("n", "<S-Tab>", ":tabprev<CR>", { silent = true })
-keyset("n", "<Tab>", ":tabnext<CR>", { silent = true })
+vim.keymap.set("n", "te", ":tabedit<CR>", { silent = true })
+vim.keymap.set("n", "<S-Tab>", ":tabprev<CR>", { silent = true })
+vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { silent = true })
 
 -- Resize splits
-keyset("n", "<C-w><left>", "<C-w><")
-keyset("n", "<C-w><right>", "<C-w>>")
-keyset("n", "<C-w><up>", "<C-w>+")
-keyset("n", "<C-w><down>", "<C-w>-")
+vim.keymap.set("n", "<C-w><left>", "<C-w><")
+vim.keymap.set("n", "<C-w><right>", "<C-w>>")
+vim.keymap.set("n", "<C-w><up>", "<C-w>+")
+vim.keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Format with Alt-F
-keyset("n", "<M-f>", vim.lsp.buf.format)
+vim.keymap.set("n", "<M-f>", vim.lsp.buf.format)
 
--- Ctrl-q to quit buffer
-keyset("n", "<C-q>", ":bd<CR>")
+vim.keymap.set("n", "<leader>bx", ":bd<CR>", { noremap = true, silent = true, desc = "Close current buffer" })
