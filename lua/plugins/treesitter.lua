@@ -1,0 +1,38 @@
+return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		opts = {
+			highlight = {
+				enable = true,
+				disable = {},
+			},
+			indent = {
+				enable = true,
+				disable = {},
+			},
+			ensure_installed = {
+				"lua",
+				"c",
+				"cpp",
+				"json",
+				"toml",
+				"rust",
+				"yaml",
+				"vim",
+				"markdown",
+				"markdown_inline",
+				"typescript",
+				"javascript",
+				"html",
+				"css",
+				"tsx",
+			},
+			context_commentstring = {
+				enable = true,
+				enable_autocmd = false,
+			},
+		},
+	},
+	"nvim-treesitter/nvim-treesitter-context",
+}
