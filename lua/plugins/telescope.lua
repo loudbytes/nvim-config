@@ -76,6 +76,10 @@ return {
 				telescope_builtin.lsp_document_symbols()
 			end, { noremap = true, silent = true, desc = "Document symbols" })
 
+			vim.keymap.set("n", "<leader>fr", function()
+				telescope_builtin.oldfiles({ initial_mode = "normal" })
+			end, { noremap = true, silent = true, desc = "Find recent files" })
+
 			vim.keymap.set("n", "<leader>bf", function()
 				telescope_builtin.buffers({ initial_mode = "normal" })
 			end, { noremap = true, silent = true, desc = "Find buffer" })

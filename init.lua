@@ -23,5 +23,5 @@ if vim.g.neovide then
 end
 
 require("core.plug")
-require("core.maps")
 require("core.highlight")
+require("core.maps")

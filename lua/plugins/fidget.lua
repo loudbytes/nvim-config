@@ -1,3 +1,6 @@
 return {
-	{ "j-hui/fidget.nvim", opts = {} },
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+	},
 }
