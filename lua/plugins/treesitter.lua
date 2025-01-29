@@ -4,7 +4,7 @@ return {
 		run = ":TSUpdate",
 		opts = {
 			highlight = {
-				enable = true,
+				enable = false,
 				disable = {},
 			},
 			indent = {

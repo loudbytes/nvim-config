@@ -17,7 +17,31 @@ return {
 			local fb_actions = require("telescope").extensions.file_browser.actions
 
 			telescope.setup({
+				pickers = {
+					find_files = {
+						theme = "ivy",
+					},
+					live_grep = {
+						theme = "ivy",
+					},
+					grep_string = {
+						theme = "ivy",
+					},
+					lsp_workspace_symbols = {
+						theme = "ivy",
+					},
+					lsp_document_symbols = {
+						theme = "ivy",
+					},
+					buffers = {
+						theme = "ivy",
+					},
+					help_tags = {
+						theme = "ivy",
+					},
+				},
 				defaults = {
+					theme = "ivy",
 					mappings = {
 						n = {
 							["q"] = actions.close,
@@ -26,7 +50,7 @@ return {
 				},
 				extensions = {
 					file_browser = {
-						--theme = "dropdown",
+						theme = "ivy",
 						sorting_strategy = "ascending",
 						preview_cutoff = 1,
 						hijack_netrw = true,

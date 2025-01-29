@@ -30,12 +30,40 @@ vim.keymap.set("v", "<A-k>", ":MoveBlock(-1)<CR>", { noremap = true, silent = tr
 vim.keymap.set("v", "<A-h>", ":MoveHBlock(-1)<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-l>", ":MoveHBlock(1)<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>xx", ":TroubleToggle<CR>", { noremap = true, silent = true })
+--vim.keymap.set("n", "<leader>xx", ":TroubleToggle<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<Cmd>Lspsaga show_cursor_diagnostics<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "gp", "<Cmd>Lspsaga preview_definition<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<cr>", { noremap = true, silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>sg",
+	"<Cmd>Lspsaga lsp_finder<cr>",
+	{ noremap = true, silent = true, desc = "Goto definition" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>sp",
+	"<Cmd>Lspsaga preview_definition<cr>",
+	{ noremap = true, silent = true, desc = "Preview definition" }
+)
+vim.keymap.set("n", "<leader>sr", "<Cmd>Lspsaga rename<cr>", { noremap = true, silent = true, desc = "Rename symbol" })
 vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_line_diagnostics<cr>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>dt", function()
+	if vim.diagnostic.is_enabled() then
+		vim.diagnostic.enable(false)
+	else
+		vim.diagnostic.enable()
+	end
+end, { noremap = true, silent = true, desc = "Toggle diagnostics" })
+
+vim.keymap.set("n", "<leader>go", "<CMD>Neogit<CR>", { noremap = true, silent = true, desc = "Open neogit" })
+
+vim.keymap.set("n", "<leader>m", "<CMD>Compile<CR>", { noremap = true, silent = true, desc = "compile" })
+vim.keymap.set(
+	"n",
+	"<leader>bm",
+	"<CMD>buffer *compilation*<CR>",
+	{ noremap = true, silent = true, desc = "open compilation buffer" }
+)

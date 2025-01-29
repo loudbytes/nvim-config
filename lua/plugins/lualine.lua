@@ -1,3 +1,4 @@
+--[[
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -32,3 +33,6 @@ return {
 		},
 	},
 }
+]]
+
+return {}

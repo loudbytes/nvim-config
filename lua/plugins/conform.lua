@@ -4,13 +4,13 @@ return {
 		config = function()
 			require("conform").setup({
 				format_on_save = {
-					lsp_fallback = true,
+					lsp_fallback = false,
 				},
 				formatters_by_ft = {
 					lua = { "stylua" },
 					javascript = { "prettierd", "prettier", stop_after_first = true },
 					typescript = { "prettierd", "prettier", stop_after_first = true },
-					c = { "clang-format" },
+					--c = { "clang-format" },
 				},
 			})
 		end,
