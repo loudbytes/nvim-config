@@ -28,7 +28,7 @@ hi! CursorLine guibg=#154240
 hi! Keyword guifg=#f8efd8 gui=NONE
 hi! Statement guifg=#f8efd8 gui=NONE
 hi! Operator guifg=#d3b58d gui=NONE
-hi Type guifg=#7ad0c6 gui=NONE
+hi! Type guifg=#7ad0c6 gui=NONE
 hi! Visual guibg=#0000ff gui=NONE
 
 hi! DiffAdd guibg=#053230 guifg=#6b8e23
@@ -47,6 +47,10 @@ hi! TodoFgNOTE guifg=#00a000
 hi! TodoFgPERF guifg=#00a000
 hi! TodoFgTEST guifg=#00a000
 hi! TodoFgHACK guifg=#ff0000
+
+hi! cErrInparen guifg=Normal
+hi! @variable guifg=Normal
+hi! DiagnosticUnnecessary guifg=Normal
 
 "hi Search guibg=#315268 guifg=#c4b82b
 "hi IncSearch guibg=#315268 guifg=#c4b82b
