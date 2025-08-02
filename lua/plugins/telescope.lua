@@ -112,10 +112,6 @@ return {
 				telescope_builtin.help_tags()
 			end, { noremap = true, silent = true, desc = "Help tags" })
 
-			vim.keymap.set("n", ";;", function()
-				telescope_builtin.resume()
-			end, { noremap = true, silent = true, desc = "Resume last" })
-
 			vim.keymap.set("n", "<leader>fd", function()
 				telescope_builtin.diagnostics()
 			end, { noremap = true, silent = true, desc = "Diagnostics" })

@@ -18,7 +18,8 @@ vim.cmd([[
 --vim.cmd.colorscheme("gruvbox")
 --vim.cmd.colorscheme("solarized-osaka")
 --vim.cmd.colorscheme("handmade")
-vim.cmd.colorscheme("custom")
+--vim.cmd.colorscheme("custom")
+vim.cmd.colorscheme("kanagawa-dragon")
 local links = {
 	["@lsp.type.namespace"] = "@namespace",
 	["@lsp.type.type"] = "@type",

@@ -65,6 +65,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "set filetype=luau",
 })
 
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = "*",
+	command = "set fileformat=unix"
+})
+
 --vim.opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h13" }
 
 vim.opt.formatoptions:append({ "r" })
