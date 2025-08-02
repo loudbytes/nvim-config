@@ -6,10 +6,6 @@ if has("linux") then
 	require("core.platform.linux")
 end
 
---if has("wsl") then
---	require("core.platform.wsl")
---end
-
 if has("macunix") then
 	require("core.platform.macos")
 else
