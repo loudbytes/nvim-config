@@ -1,3 +1,5 @@
+local vim_version = vim.version()
+
 vim.g.mapleader = " "
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
@@ -33,6 +35,12 @@ vim.opt.background = "dark"
 --vim.opt.colorcolumn = "100"
 vim.opt.termguicolors = true
 
+-- Set clipboard
+vim.opt.clipboard:prepend({ "unnamedplus" })
+
+-- Shell options
+vim.opt.shell = "fish"
+
 -- :Man causes issues when called in visual mode (for some reason?)
 vim.opt.keywordprg = ":help"
 
@@ -49,8 +57,8 @@ vim.opt.wildignore:append({ "*/Packages/*", "*/node_modules/*" })
 
 vim.opt.whichwrap:append("<>[]hl")
 
--- Enable smooth scroll on nvim 0.10
-if vim.fn.has("nvim-0.10") == 1 then
+-- Enable smooth scroll on nvim 0.10 or higher
+if vim_version.minor >= 10 then
 	vim.opt.smoothscroll = true
 end
 
@@ -65,11 +73,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "set filetype=luau",
 })
 
+-- Set file endings to unix-style, always.
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = "*",
-	command = "set fileformat=unix"
+	command = "set fileformat=unix",
 })
-
---vim.opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h13" }
 
 vim.opt.formatoptions:append({ "r" })

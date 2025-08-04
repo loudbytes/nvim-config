@@ -67,3 +67,6 @@ vim.keymap.set(
 	"<CMD>buffer *compilation*<CR>",
 	{ noremap = true, silent = true, desc = "open compilation buffer" }
 )
+
+-- to avoid typing norm everytime
+vim.keymap.set("v", "<leader>n", ":norm ", { noremap = true })
