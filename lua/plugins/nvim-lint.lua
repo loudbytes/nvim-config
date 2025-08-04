@@ -4,6 +4,8 @@ return {
 		config = function()
 			require("lint").linters_by_ft = {
 				typescript = { "eslint" },
+				lua = { "selene" },
+				janet = { "janet" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
