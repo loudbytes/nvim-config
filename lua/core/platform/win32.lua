@@ -1,3 +1,4 @@
+print("Should never print")
 -- Set clipboard
 vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
 

@@ -1,25 +1,24 @@
--- I forgot what this does.
-vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor50]])
+--[[
+-- highlight.lua
+-- Contains my settings for highlights.
+--]]
 
-vim.cmd([[hi Todo guibg=NONE]])
+-- Highlight yanked area for `highlight_yank_timeout` ms.
+-- Useful to know what I yanked
+local highlight_yank_timeout = 100
+local highlight_yank = vim.api.nvim_create_augroup("highlight_yank", {})
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+	desc = "Highlight yanked text for " .. highlight_yank_timeout .. "ms",
+	group = highlight_yank,
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Visual", timeout = highlight_yank_timeout })
+	end,
+})
 
--- TODO: Rewrite this in lua
--- highlight yanked text for 200ms using the "Visual" highlight group
-vim.cmd([[
-  augroup highlight_yank
-  autocmd!
-  au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=100})
-  augroup END
-]])
-
---vim.cmd([[colorscheme gruvbox]])
---vim.cmd([[colorscheme solarized-osaka]])
---vim.cmd([[colorscheme handmade]])
---vim.cmd.colorscheme("gruvbox")
---vim.cmd.colorscheme("solarized-osaka")
---vim.cmd.colorscheme("handmade")
---vim.cmd.colorscheme("custom")
 vim.cmd.colorscheme("kanagawa-dragon")
+
+vim.api.nvim_set_hl(0, "Todo", { default = true, bg = "NONE" })
+
 local links = {
 	["@lsp.type.namespace"] = "@namespace",
 	["@lsp.type.type"] = "@type",

@@ -1,3 +1,8 @@
+-- [[
+-- keymaps.lua
+-- Contains my personal keybindings.
+-- ]]
+
 -- Don't yank with x
 vim.keymap.set("n", "x", '"_x')
 vim.keymap.set("n", "X", '"_X')
@@ -5,7 +10,7 @@ vim.keymap.set("v", "x", '"_x')
 vim.keymap.set("v", "X", '"_X')
 
 -- Tab controls
-vim.keymap.set("n", "te", ":tabedit<CR>", { silent = true })
+vim.keymap.set("n", "te", ":tabedit<CR>", { noremap = true, silent = true, desc = "Open a new tab" })
 vim.keymap.set("n", "<S-Tab>", ":tabprev<CR>", { silent = true })
 vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { silent = true })
 
@@ -18,6 +23,7 @@ vim.keymap.set("n", "<C-w><down>", "<C-w>-")
 -- Format with Alt-F
 vim.keymap.set("n", "<M-f>", vim.lsp.buf.format)
 
+-- Close the current buffer.
 vim.keymap.set("n", "<leader>bx", ":bd<CR>", { noremap = true, silent = true, desc = "Close current buffer" })
 
 vim.keymap.set("n", "<A-j>", ":MoveLine(1)<CR>", { noremap = true, silent = true })
@@ -30,8 +36,7 @@ vim.keymap.set("v", "<A-k>", ":MoveBlock(-1)<CR>", { noremap = true, silent = tr
 vim.keymap.set("v", "<A-h>", ":MoveHBlock(-1)<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-l>", ":MoveHBlock(1)<CR>", { noremap = true, silent = true })
 
---vim.keymap.set("n", "<leader>xx", ":TroubleToggle<CR>", { noremap = true, silent = true })
-
+-- LSP controls
 vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<Cmd>Lspsaga show_cursor_diagnostics<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<cr>", { noremap = true, silent = true })
@@ -58,15 +63,22 @@ vim.keymap.set("n", "<leader>dt", function()
 	end
 end, { noremap = true, silent = true, desc = "Toggle diagnostics" })
 
+-- Neogit
 vim.keymap.set("n", "<leader>go", "<CMD>Neogit<CR>", { noremap = true, silent = true, desc = "Open neogit" })
 
+-- Like emacs' compile mode
 vim.keymap.set("n", "<leader>m", "<CMD>Compile<CR>", { noremap = true, silent = true, desc = "compile" })
 vim.keymap.set(
 	"n",
 	"<leader>bm",
 	"<CMD>buffer *compilation*<CR>",
-	{ noremap = true, silent = true, desc = "open compilation buffer" }
+	{ noremap = true, silent = true, desc = "Open compilation buffer" }
 )
 
 -- to avoid typing norm everytime
 vim.keymap.set("v", "<leader>n", ":norm ", { noremap = true })
+
+-- Toggle wrapping
+vim.keymap.set("n", "<leader>tw", function()
+	vim.wo.wrap = not vim.wo.wrap
+end, { noremap = true, silent = true, desc = "Toggle wrap" })
