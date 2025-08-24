@@ -1,4 +1,5 @@
 local vim_version = vim.version()
+local operating_system = vim.loop.os_uname().sysname
 
 local MIN_MAJOR = 0
 local MIN_MINOR = 11
@@ -69,14 +70,18 @@ vim.opt.wildignore:append({ "*/Packages/*", "*/node_modules/*" })
 vim.opt.whichwrap:append("<>[]hl")
 
 vim.opt.smoothscroll = true
-vim.opt.winborder = "rounded"
+
+vim.filetype.add({
+	extension = {
+		njk = "html.jinja",
+	},
+})
 
 vim.api.nvim_create_autocmd("InsertLeave", {
 	pattern = "*",
 	command = "set nopaste",
 })
 
--- errors on latest - look into fixing this
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.luau",
 	command = "set filetype=luau",
@@ -94,6 +99,17 @@ if vim.g.neovide then
 	require("core.platform.neovide")
 end
 
+-- Init plugins
 require("core.plug")
+
+-- Color scheme
+-- This isn't in highlight because I change this setting often and having to go to the highlight
+-- file everytime got annoying
+if operating_system == "Darwin" then
+	vim.cmd.colorscheme("solarized-osaka")
+else
+	vim.cmd.colorscheme("kanagawa-dragon")
+end
+
 require("core.highlight")
 require("core.keymaps")
