@@ -1,3 +1,4 @@
+local lsp_icons = require("lsp_icons")
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -31,40 +32,37 @@ return {
 			end
 
 			protocol.CompletionItemKind = {
-				"", -- Text
-				"󰊕", -- Method
-				"󰊕", -- Function
-				"󰊕", -- Constructor
-				"", -- Field
-				"", -- Variable
-				"", -- Class
-				"󰜰", -- Interface
-				"󰏗", -- Module
-				"", -- Property
-				"", -- Unit
-				"󰎠", -- Value
-				"", -- Enum
-				"󰌋", -- Keyword
-				"󰘍", -- Snippet
-				"", -- Color
-				"", -- File
-				"󰆑", -- Reference
-				"", -- Folder
-				"", -- EnumMember
-				"", -- Constant
-				"", -- Struct
-				"", -- Event
-				"󰘧", -- Operator
-				"", -- TypeParameter
+				lsp_icons.Text,
+				lsp_icons.Method,
+				lsp_icons.Function,
+				lsp_icons.Constructor,
+				lsp_icons.Field,
+				lsp_icons.Variable,
+				lsp_icons.Class,
+				lsp_icons.Interface,
+				lsp_icons.Module,
+				lsp_icons.Property,
+				lsp_icons.Unit,
+				lsp_icons.Value,
+				lsp_icons.Enum,
+				lsp_icons.Keyword,
+				lsp_icons.Snippet,
+				lsp_icons.Color,
+				lsp_icons.File,
+				lsp_icons.Reference,
+				lsp_icons.Folder,
+				lsp_icons.EnumMember,
+				lsp_icons.Constant,
+				lsp_icons.Struct,
+				lsp_icons.Event,
+				lsp_icons.Operator,
+				lsp_icons.TypeParameter,
 			}
 
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- cmp_nvim_lsp only provides capabilities for textDocument so we must define workspace ourselves
-			capabilities.workspace = {
-				didChangeWatchedFiles = {
-					dynamicRegistration = true,
-				},
-			}
+			capabilities.workspace = { didChangeWatchedFiles = { dynamicRegistration = true } }
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 			-- TODO: Fetch them automatically
 			local luau_def_location = "/home/kyo/luau-lsp/globalTypes.d.lua"
@@ -126,7 +124,18 @@ return {
 
 			nvim_lsp.ts_ls.setup({
 				on_attach = on_attach,
-				filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+				filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
+				capabilities = capabilities,
+			})
+
+			nvim_lsp.html.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+				filetypes = { "html", "njk" },
+			})
+
+			nvim_lsp.cssls.setup({
+				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
