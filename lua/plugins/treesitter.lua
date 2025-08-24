@@ -27,6 +27,7 @@ return {
 				"html",
 				"css",
 				"tsx",
+				"jinja",
 			},
 			context_commentstring = {
 				enable = true,
