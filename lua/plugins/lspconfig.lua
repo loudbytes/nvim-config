@@ -144,6 +144,15 @@ return {
 				capabilities = capabilities,
 			})
 
+			nvim_lsp.jinja_lsp.setup({
+				capabilities = capabilities,
+				filetypes = { "njk", "jinja", "html.jinja" },
+				root_markers = { "package.json", ".git" },
+				settings = {
+					template_extensions = { "njk", "html.jinja" },
+				},
+			})
+
 			vim.lsp.handlers["textDocument/publishDiagnostics"] =
 				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 					underline = true,
