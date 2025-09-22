@@ -107,44 +107,51 @@ return {
 				capabilities = capabilities,
 			})
 
-			nvim_lsp.clangd.setup({
+			vim.lsp.config("clangd", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("clangd")
 
-			nvim_lsp.rust_analyzer.setup({
+			vim.lsp.config("rust_analyzer", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("rust_analyzer")
 
-			nvim_lsp.ols.setup({
+			vim.lsp.config("ols", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("ols")
 
-			nvim_lsp.ts_ls.setup({
+			vim.lsp.config("ts_ls", {
 				on_attach = on_attach,
 				filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" },
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("ts_ls")
 
-			nvim_lsp.html.setup({
+			vim.lsp.config("html", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 				filetypes = { "html", "njk" },
 			})
+			vim.lsp.enable("html")
 
-			nvim_lsp.cssls.setup({
+			vim.lsp.config("cssls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("cssls")
 
-			nvim_lsp.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("lua_ls")
 
-			nvim_lsp.jinja_lsp.setup({
+			vim.lsp.config("jinja_lsp", {
 				capabilities = capabilities,
 				filetypes = { "njk", "jinja", "html.jinja" },
 				root_markers = { "package.json", ".git" },
@@ -152,11 +159,13 @@ return {
 					template_extensions = { "njk", "html.jinja" },
 				},
 			})
+			vim.lsp.enable("jinja_lsp")
 
-			nvim_lsp.tinymist.setup({
+			vim.lsp.config("tinymist", {
 				on_attach = on_attach,
 				capabilities = capabilities,
 			})
+			vim.lsp.enable("tinymist")
 
 			vim.lsp.handlers["textDocument/publishDiagnostics"] =
 				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
