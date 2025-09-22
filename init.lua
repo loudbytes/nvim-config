@@ -105,7 +105,7 @@ require("core.plug")
 -- Color scheme
 -- This isn't in highlight because I change this setting often and having to go to the highlight
 -- file everytime got annoying
-if operating_system == "Darwin" then
+if false and operating_system == "Darwin" then
 	vim.cmd.colorscheme("solarized-osaka")
 else
 	vim.cmd.colorscheme("kanagawa-dragon")
