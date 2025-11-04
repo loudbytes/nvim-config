@@ -15,8 +15,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 })
 
-vim.cmd.colorscheme("kanagawa-dragon")
-
 vim.api.nvim_set_hl(0, "Todo", { default = true, bg = "NONE" })
 
 local links = {

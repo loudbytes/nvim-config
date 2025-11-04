@@ -17,6 +17,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {},
+		enabled = false,
 
 		config = function()
 			local config = {
