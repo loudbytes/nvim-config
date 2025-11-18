@@ -67,12 +67,31 @@ end, { noremap = true, silent = true, desc = "Toggle diagnostics" })
 vim.keymap.set("n", "<leader>go", "<CMD>Neogit<CR>", { noremap = true, silent = true, desc = "Open neogit" })
 
 -- Like emacs' compile mode
-vim.keymap.set("n", "<leader>m", "<CMD>Compile<CR>", { noremap = true, silent = true, desc = "compile" })
+vim.keymap.set(
+	"n",
+	"<leader>mc",
+	"<CMD>below Compile ./build.sh<CR>",
+	{ noremap = true, silent = true, desc = "Compile" }
+)
+vim.keymap.set("n", "<leader>mr", "<CMD>below Recompile<CR>", { noremap = true, silent = true, desc = "Recompile" })
 vim.keymap.set(
 	"n",
 	"<leader>bm",
 	"<CMD>buffer *compilation*<CR>",
 	{ noremap = true, silent = true, desc = "Open compilation buffer" }
+)
+
+vim.keymap.set(
+	"n",
+	"<leader>en",
+	"<CMD>NextError<CR>",
+	{ noremap = true, silent = true, desc = "Jump to next compile error" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>ep",
+	"<CMD>PrevError<CR>",
+	{ noremap = true, silent = true, desc = "Jump to previous compile error" }
 )
 
 -- to avoid typing norm everytime
