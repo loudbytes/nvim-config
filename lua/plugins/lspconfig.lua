@@ -64,49 +64,6 @@ return {
 			capabilities.workspace = { didChangeWatchedFiles = { dynamicRegistration = true } }
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-			-- TODO: Fetch them automatically
-			local luau_def_location = "/home/kyo/luau-lsp/globalTypes.d.lua"
-			local luau_docs_location = "/home/kyo/luau-lsp/api-docs.json"
-			if vim.fn.has("win32") then
-				luau_def_location = "C:/luau-lsp/globalTypes.d.lua"
-				luau_docs_location = "C:/luau-lsp/api-docs.json"
-			end
-
-			local cmd = {
-				"luau-lsp",
-				"lsp",
-				"--definitions=" .. luau_def_location,
-				"--docs=" .. luau_docs_location,
-			}
-
-			if not configs.luaulsp then
-				configs.luaulsp = {
-					default_config = {
-						cmd = cmd,
-						filetypes = { "lua", "luau" },
-						root_dir = nvim_lsp.util.root_pattern("*.project.json", "sourcemap.json"),
-						single_file_support = false,
-						settings = {},
-					},
-				}
-			end
-
-			nvim_lsp.luaulsp.setup({
-				on_init = function(client)
-					local sourcemap_path = vim.lsp.buf.list_workspace_folders()[1] .. "/sourcemap.json"
-					if path.exists(sourcemap_path) then
-						table.insert(cmd, "--sourcemap=" .. sourcemap_path)
-					end
-
-					client.config.cmd = cmd
-					client.notify("workspace/didChangeConfiguration", client.config)
-					return true
-				end,
-
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
 			vim.lsp.config("clangd", {
 				on_attach = on_attach,
 				capabilities = capabilities,
