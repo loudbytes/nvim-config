@@ -18,7 +18,7 @@ vim.opt.fileformat = "unix"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-
+vim.opt.splitright = true
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true

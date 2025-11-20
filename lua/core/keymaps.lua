@@ -70,10 +70,10 @@ vim.keymap.set("n", "<leader>go", "<CMD>Neogit<CR>", { noremap = true, silent = 
 vim.keymap.set(
 	"n",
 	"<leader>mc",
-	"<CMD>below Compile ./build.sh<CR>",
+	"<CMD>vertical Compile ./build.sh<CR>",
 	{ noremap = true, silent = true, desc = "Compile" }
 )
-vim.keymap.set("n", "<leader>mr", "<CMD>below Recompile<CR>", { noremap = true, silent = true, desc = "Recompile" })
+vim.keymap.set("n", "<leader>mr", "<CMD>vertical Recompile<CR>", { noremap = true, silent = true, desc = "Recompile" })
 vim.keymap.set(
 	"n",
 	"<leader>bm",
