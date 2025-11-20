@@ -101,3 +101,21 @@ vim.keymap.set("v", "<leader>n", ":norm ", { noremap = true })
 vim.keymap.set("n", "<leader>tw", function()
 	vim.wo.wrap = not vim.wo.wrap
 end, { noremap = true, silent = true, desc = "Toggle wrap" })
+
+local SCRATCH_BUFFER_NAME = "*scratch*"
+vim.keymap.set("n", "<leader>bs", function()
+	local scratch_buffer = vim.fn.bufnr(SCRATCH_BUFFER_NAME)
+	if scratch_buffer ~= -1 then
+		local windownum = vim.fn.bufwinnr(scratch_buffer)
+		if windownum ~= -1 then
+			vim.cmd(windownum .. " wincmd w")
+		else
+			vim.cmd("buffer " .. scratch_buffer)
+		end
+	else
+		-- create scratch buf
+		local bufnr = vim.api.nvim_create_buf(true, true)
+		vim.api.nvim_buf_set_name(bufnr, SCRATCH_BUFFER_NAME)
+		vim.cmd("buffer " .. bufnr)
+	end
+end, { noremap = true, silent = true, desc = "Open scratch buffer" })
