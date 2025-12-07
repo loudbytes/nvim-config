@@ -126,3 +126,6 @@ vim.keymap.set("n", "<leader>bs", function()
 		vim.cmd("buffer " .. bufnr)
 	end
 end, { noremap = true, silent = true, desc = "Open scratch buffer" })
+
+vim.keymap.set("n", "<leader>cf", ":ConjureEvalFile<CR>", { noremap = true, silent = true, desc = "ConjureEvalFile" })
+vim.keymap.set("n", "<leader>ce", ":ConjureEval<CR>", { noremap = true, silent = true, desc = "ConjureEval" })
