@@ -77,6 +77,20 @@ vim.filetype.add({
 	},
 })
 
+local number_group = vim.api.nvim_create_augroup("lb_numbers", {
+	clear = true,
+})
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+	group = number_group,
+	command = "set norelativenumber",
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+	group = number_group,
+	command = "set relativenumber",
+})
+
 vim.api.nvim_create_autocmd("InsertLeave", {
 	pattern = "*",
 	command = "set nopaste",
