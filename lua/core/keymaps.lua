@@ -9,10 +9,20 @@ vim.keymap.set("n", "X", '"_X')
 vim.keymap.set("v", "x", '"_x')
 vim.keymap.set("v", "X", '"_X')
 
+-- Move around in insert mode by holding ctrl and using the movement keys
+vim.keymap.set("i", "<C-h>", "<C-o>h", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-j>", "<C-o>j", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-k>", "<C-o>k", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-l>", "<C-o>l", { noremap = true, silent = true })
+
 -- Tab controls
 vim.keymap.set("n", "te", ":tabedit<CR>", { noremap = true, silent = true, desc = "Open a new tab" })
 vim.keymap.set("n", "<S-Tab>", ":tabprev<CR>", { silent = true })
 vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { silent = true })
+
+-- Don't exit visual mode when we change indent of selection
+vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true })
+vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true })
 
 -- Resize splits
 vim.keymap.set("n", "<C-w><left>", "<C-w><")
@@ -93,9 +103,6 @@ vim.keymap.set(
 	"<CMD>PrevError<CR>",
 	{ noremap = true, silent = true, desc = "Jump to previous compile error" }
 )
-
--- to avoid typing norm everytime
-vim.keymap.set("v", "<leader>n", ":norm ", { noremap = true })
 
 -- Toggle wrapping
 vim.keymap.set("n", "<leader>tw", function()

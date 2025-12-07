@@ -18,6 +18,7 @@ return {
 					vim.api.nvim_buf_set_keymap(bufnr, ...)
 				end
 				local function buf_set_option(...)
+					-- TODO: Replace with not-deprecated version
 					vim.api.nvim_buf_set_option(bufnr, ...)
 				end
 
@@ -65,7 +66,10 @@ return {
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 			vim.lsp.config("clangd", {
-				on_attach = on_attach,
+				on_attach = function(client, bufnr)
+					vim.diagnostic.enable(false)
+					on_attach(client, bufnr)
+				end,
 				capabilities = capabilities,
 			})
 			vim.lsp.enable("clangd")
