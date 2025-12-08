@@ -8,4 +8,5 @@ return {
 	"xero/miasma.nvim",
 	"kvrohit/rasmus.nvim",
 	"aktersnurra/no-clown-fiesta.nvim",
+	"AlexvZyl/nordic.nvim",
 }
