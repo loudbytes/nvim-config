@@ -15,6 +15,9 @@ vim.keymap.set("i", "<C-j>", "<C-o>j", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-k>", "<C-o>k", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-l>", "<C-o>l", { noremap = true, silent = true })
 
+-- Insert lambda character with <C-\>
+vim.keymap.set("i", "<C-\\>", "λ", { noremap = true, silent = true })
+
 -- Tab controls
 vim.keymap.set("n", "te", ":tabedit<CR>", { noremap = true, silent = true, desc = "Open a new tab" })
 vim.keymap.set("n", "<S-Tab>", ":tabprev<CR>", { silent = true })
@@ -45,6 +48,10 @@ vim.keymap.set("v", "<A-j>", ":MoveBlock(1)<CR>", { noremap = true, silent = tru
 vim.keymap.set("v", "<A-k>", ":MoveBlock(-1)<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-h>", ":MoveHBlock(-1)<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-l>", ":MoveHBlock(1)<CR>", { noremap = true, silent = true })
+
+-- Conjure
+--vim.keymap.set("n", ",e", "<Cmd>ConjureEval<CR>", { noremap = true, silent = true })
+--vim.keymap.set("n", ",l", "<Cmd>ConjureLogVSplit<CR>", { noremap = true, silent = true })
 
 -- LSP controls
 vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<cr>", { noremap = true, silent = true })
