@@ -10,7 +10,8 @@ if vim_version.major == MIN_MAJOR and vim_version.minor < MIN_MINOR then
 	error("Outdated neovim version! This config only supports neovim version 0.11 or higher.")
 end
 
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- Set <leader> to space
+vim.g.maplocalleader = "," -- Set <localleader> to ,
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
