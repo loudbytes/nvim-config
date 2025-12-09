@@ -92,6 +92,16 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	command = "set relativenumber",
 })
 
+vim.api.nvim_create_autocmd("WinEnter", {
+	group = number_group,
+	command = "set relativenumber",
+})
+
+vim.api.nvim_create_autocmd("WinLeave", {
+	group = number_group,
+	command = "set norelativenumber",
+})
+
 vim.api.nvim_create_autocmd("InsertLeave", {
 	pattern = "*",
 	command = "set nopaste",
