@@ -133,3 +133,15 @@ vim.keymap.set("n", "<leader>bs", function()
 		vim.cmd("buffer " .. bufnr)
 	end
 end, { noremap = true, silent = true, desc = "Open scratch buffer" })
+
+-- Journaling
+
+local function get_todays_journal_path()
+	local file_path = "~/journal/daily/" .. vim.fn.strftime("%Y-%m-%d") .. ".md"
+	return file_path
+end
+
+vim.keymap.set("n", "<leader>jd", function()
+	vim.cmd("e " .. get_todays_journal_path())
+	-- TODO: If no entry is found, open the file and add a header with the date
+end, { noremap = true, silent = true, desc = "Open today's daily journal" })
