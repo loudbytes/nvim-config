@@ -124,7 +124,8 @@ if false and operating_system == "Darwin" then
 	vim.cmd.colorscheme("solarized-osaka")
 else
 	--vim.cmd.colorscheme("kanagawa-dragon")
-	vim.cmd.colorscheme("zenwritten")
+	--vim.cmd.colorscheme("zenwritten")
+	vim.cmd.colorscheme("kanso-ink")
 end
 
 require("core.highlight")
