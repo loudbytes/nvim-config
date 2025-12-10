@@ -11,4 +11,8 @@ return {
 	"bjarneo/ash.nvim",
 	"pebeto/dookie.nvim",
 	"vague-theme/vague.nvim",
+	"jckmgns/curtailed",
+	"slugbyte/lackluster.nvim",
+	"ptdewey/darkearth-nvim",
+	"ishan9299/nvim-solarized-lua",
 }
